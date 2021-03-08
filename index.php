@@ -4,10 +4,11 @@ $current_index=0;
 $next_index=$current_index+5;
 $prev_index=$current_index-5;
 
+require __DIR__ . '/vendor/autoload.php';
+//require_once("mysqli_connect.php");
 
-require_once("mysqli_connect.php");
 
-$mysqli_obj= new mysqli_Handler();
+$mysqli_obj= new mysqli_connect();
 
 $mysqli_obj->connect();
 
@@ -74,7 +75,7 @@ else{
       echo "<p style='margin: 50px;color:grey; display:inline;background-color:#FAEBD7;padding:5px' >Prev</p><a style=' background-color:#FAEBD7;padding:5px' href='index.php?next=$next_index'>Next</a>";
 
     }
-    else if ($next_index>$number_of_records){
+    else if ($next_index>=$number_of_records){
       echo "<a style=' background-color:#FAEBD7;padding:5px' href='index.php?prev=$prev_index'>Prev</a><p style='margin: 50px;color:grey; display:inline;background-color:#FAEBD7;padding:5px' >Next</p>";
     }
     else{
